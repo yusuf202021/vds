@@ -17,4 +17,4 @@ jobs:
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: Create Tunnel
       run: echo "1" > input.txt  
-    - run: cat input.txt | .\pktriot.exe --config config.json tcp 3389
+    - run: cat input.txt | .\pktriot.exe configure --url
